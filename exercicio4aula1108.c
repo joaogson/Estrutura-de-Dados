@@ -38,5 +38,7 @@ main(){
     printf("A matriz possui [%2d] valores maiores que 10", cont);
     printf("\n");
     printf("\n");
+
+    return 0;
     
 }
