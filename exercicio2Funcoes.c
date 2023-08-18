@@ -1,41 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-float Media(nota1, nota2, nota3, opcao){
-    float media;
-
-    if(opcao == 1){
-        media = (nota1 + nota2 + nota3) / 3;
+float Media(float nota_1, float nota_2, float nota_3, char opc){
+    float peso1=5, peso2=3, peso3=2, media=0;
+    if(opc == 'a'){
+        media = (nota_1 + nota_2 + nota_3) / 3;
     }
-    else if (opcao == 2)
-    {
-        media = (nota1*5 + nota2*3 + nota3*2)/(5+3+2);
+    else if(opc == 'p'){
+        media = (nota_1*peso1+ nota_2*peso2 + nota_3*peso3) / (peso1 + peso2 + peso3);
     }
-    
+    else if(opc== 'h'){
+        media = (3 / (1 / nota_1 + 1 / nota_2 + 1 / nota_3));
+    }
     return media;
 }
 
 int main(){
-
-    float Nota1; 
-    float Nota2;
-    float Nota3;
-    int Letra;
-
-    printf("Digite a primeira nota: ");
-    scanf("%f", &Nota1);
+    float nota1;
+    float nota2;    
+    float nota3;
+    float media;
+    char opcao;
+    int sair;
+    
+    do{
+    printf("Informe a primeira nota: ");
+    scanf("%f", &nota1);
 
     printf("Informe a segunda nota: ");
-    scanf("%f", &Nota2);
+    scanf("%f", &nota2);
 
     printf("Informe a terceira nota: ");
-    scanf("%f", &Nota3);
+    scanf("%f", &nota3);
 
-    printf("Informe a media\nA- Aritimetica\nP- Ponderada\n H- Harmonica\n");
-    scanf("%d", &Letra);
- 
-    printf("a media e: %f", Media(Nota1, Nota2, Nota3, Letra));
+    printf("Informe o tipo de media: \nA - Aritimetica\nP - Ponderada\n H - Harmonica\n ");
+    scanf("%s", &opcao);
+
+    media = Media(nota1, nota2, nota3, opcao);
+
+    printf("A media é: %2.1f\n\n", media);
+
+    printf("continuar? 1-continuar 0- sair:\n ");
+    scanf("%i", &sair);
+}
+while(sair > 0);
 
     return 0;
 }
+
