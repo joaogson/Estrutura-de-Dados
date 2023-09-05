@@ -33,7 +33,7 @@ int main(){
     printf("Informe a terceira nota: ");
     scanf("%f", &nota3);
 
-    printf("Informe o tipo de media: \nA - Aritimetica\nP - Ponderada\n H - Harmonica\n ");
+    printf("Informe o tipo de media: \nA - Aritmetica\nP - Ponderada\n H - Harmonica\n ");
     scanf("%s", &opcao);
 
     media = Media(nota1, nota2, nota3, opcao);
