@@ -1,29 +1,46 @@
 #include <stdio.h>
-#include <locale.h>
+#include <stdlib.h>
+
+
+int ContarCaracter(char *p1){
+
+    int count = 0;
+    do{
+    count++;
+    }while (p1[count] != '\0');
+
+    printf("A string possui [%d] caracteres", count -1);
+
+}
+
+void EscreverString(){
+
+    char str[50];;
+
+    printf("escreva algo: \n");
+    fgets(str, 50, stdin);
+    fflush(stdin);
+
+    ContarCaracter(str);   
+
+}
 
 int main(){
 
-     setlocale(LC_ALL,"");
+    int opc, i = 0;
 
-    int vetor[12], X, Y;
-    
-    printf("Informe os 12 valores do vetor\n");
-    
-    for(int i = 0;i<12; i++){
-        printf("[%d] : ", i);
-        scanf("%d", &vetor[i]);
+    EscreverString();
+
+    while(i>=0){
+        printf("\n1 - Continuar\n2-Sair\n");
+        scanf("%i", &opc);
+        if(opc==1){
+            getchar();
+            system("cls");
+            EscreverString();
+        }
+        else{
+            return 0;
+        }
     }
-
-
-    printf("Escolha 2 numero menores que 12\n");
-    scanf("%d", &X);
-    scanf("%d", &Y);
-
-    if(X>12 || Y>12){
-        printf("ERROR");
-    }
-
-    printf("\nSOMA: %d", vetor[X] + vetor[Y]);
-
-
 }
